@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding="UTF-8"?>
+
+<!ELEMENT parcours (user, workspace) >
+
+<!ELEMENT user EMPTY>
+	<!ATTLIST user
+		nom CDATA #IMPLIED
+		prenom CDATA #IMPLIED
+		mail CDATA #IMPLIED
+		date_naissance CDATA #IMPLIED
+	>
+
+
+<!ELEMENT workspace (workspace|(abstract_entity,concrete_entity)|abstract_entity)*>
+	<!ATTLIST workspace 
+		id CDATA #REQUIRED
+		nom CDATA #IMPLIED
+		description CDATA #IMPLIED
+		statut (FERME|OUVERT|INVISIBLE|ARCHIVE|CLOTURE) #IMPLIED
+		type (FORMATION|MODULE|RUBRIQUE|GROUPE_ACTIONS) #IMPLIED
+		modalite CDATA #IMPLIED
+
+	>
+<!ELEMENT abstract_entity (concrete_entity)*>
+	<!ATTLIST abstract_entity
+		id CDATA #REQUIRED
+		nom CDATA #IMPLIED
+		description CDATA #IMPLIED
+		type_digital (digital|non_digital) #REQUIRED
+		type (LIEN_PAGE_HTML|LIEN_DOCUMENT_TELECHARGER|LIEN_SITE_INTERNET|LIEN_CHAT|LIEN_FORUM|LIEN_TEXTE_FORMATTE|LIEN_INTITULE_NON_ACTIVABLE|LIEN_GALERIE|LIEN_COLLECTICIEL|LIEN_FORMULAIRE|LIEN_GLOSSAIRE|LIEN_TABLEAU_DE_BORD|LIEN_HOTPOTATOES|LIEN_VIDE) #IMPLIED
+		modalite CDATA #IMPLIED		
+	>
+	
+
+<!ELEMENT concrete_entity EMPTY>
+	<!ATTLIST concrete_entity
+		datas CDATA #IMPLIED
+	>
+
+
+	
+	
+	
+	
